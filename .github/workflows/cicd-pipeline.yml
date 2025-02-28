@@ -23,11 +23,11 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        docker build -t obidocker10/myapp:${{ github.sha }} .
+        docker build -t obidocker10/myapp-new .
 
     - name: Push Docker Image to Docker Hub
       run: |
-        docker push obidocker10/myapp:${{ github.sha }}
+        docker push obidocker10/myapp-new
 
   sonar-analysis:
     runs-on: self-hosted
@@ -67,5 +67,3 @@ jobs:
     - name: Clean Up Docker Resources
       run: |
         docker system prune -af
-
-        #
